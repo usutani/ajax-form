@@ -1,0 +1,7 @@
+<% if @user.errors.any? %>
+  $('#new_user').replaceWith('<%=j render 'form' %>');
+<% else %>
+  $('#new_user').remove();
+  $('tbody').append('<%=j render @user %>');
+  $('.new_user_link').show();
+<% end %>

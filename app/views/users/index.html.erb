@@ -2,6 +2,8 @@
 
 <h1>Listing Users</h1>
 
+<input type='text' placeholder='search' id='search'>
+
 <table>
   <thead>
     <tr>
@@ -11,17 +13,10 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render partial: 'user', collection: @users %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path, remote: true, class: 'new_user_link' %>
